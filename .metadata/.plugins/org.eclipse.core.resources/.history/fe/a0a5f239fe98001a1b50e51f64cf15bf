@@ -1,0 +1,56 @@
+package com.ebanking.maven;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+
+public class Maven {
+
+	public void main (String args[]) {
+		//Launch firefox
+		
+				WebDriver driver=new FirefoxDriver();
+				
+				//URL
+				
+				driver.get("http://183.82.100.55/ranford2");
+
+				//Maximise
+				
+				driver.manage().window().maximize();
+				
+				//Admin Login
+				
+				driver.findElement(By.id("txtuId")).sendKeys("Admin");
+				driver.findElement(By.id("txtPword")).sendKeys("M1ndq");
+				driver.findElement(By.id("login")).click();
+				
+				//Branch Creation
+				
+				driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[4]/td/table/tbody/tr[1]/td[2]/table/tbody/tr[2]/td/table/tbody/tr[2]/td/a/img")).click();
+				driver.findElement(By.xpath("//*[@id=\"BtnNewBR\"]")).click();
+				
+				//Branchname
+				//Add1
+				//Zipcode		
+				
+				//Drop down
+				
+				Select Ctry=new Select(driver.findElement(By.id("lst_counrtyU")));
+				Ctry.selectByVisibleText("INDIA");
+				
+				//State
+				//city
+				//Submit
+				
+				//Alert
+				driver.switchTo().alert().accept();
+				
+	}
+
+}

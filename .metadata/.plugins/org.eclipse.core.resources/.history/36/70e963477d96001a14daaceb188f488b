@@ -1,0 +1,39 @@
+package com.ebanking.seleniumGrid;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.Capabilities;
+import org.openqa.selenium.Platform;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Sleeper;
+
+import com.ebanking.master.AdminHP;
+import com.ebanking.master.RanfordHP;
+
+public class Seleniumgrid {
+
+	DesiredCapabilities cap=null;
+	public void grid() throws MalformedURLException {
+	cap=new DesiredCapabilities();
+	cap.setBrowserName("firefox");
+	cap.setPlatform(Platform.WINDOWS);
+	
+	RemoteWebDriver driver =new RemoteWebDriver(new URL("http://192.168.43.152:4444/wd/hub"),cap);
+	driver.manage().window().maximize();
+	
+	driver.get("http://183.82.100.55/ranford2");
+	
+	RanfordHP RHP=PageFactory.initElements(driver,RanfordHP.class);
+	RHP.Login();
+     	
+	AdminHP AHP=PageFactory.initElements(driver,AdminHP.class);
+	AHP.adminHPRoles();
+	   Sleeper.sleepTightInSeconds(5);
+	Rdetails RD=PageFactory.initElements(driver,Rdetails.class);
+	RD.Nrole();
+	   
+}
+}

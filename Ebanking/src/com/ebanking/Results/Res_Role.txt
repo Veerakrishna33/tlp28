@@ -1,0 +1,5 @@
+RoleName###RoleDescriciption###RoleType
+AbcdeManger###Cashier###C$$$$Role Already existed
+AbcdefManger###Cashier###E$$$$Role Already existed
+AbcdefgManger###Cashier###C$$$$Role Already existed
+AbcdefghManger###Cashier###E$$$$Role Already existed

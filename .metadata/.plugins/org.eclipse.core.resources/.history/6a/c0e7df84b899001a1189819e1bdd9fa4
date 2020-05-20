@@ -1,0 +1,54 @@
+package com.ebanking.maven;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+
+public class Maven {
+
+	WebDriver driver;
+	public void search(String adt, String chd, String inf) {
+		driver.get("http://spicejet.com");
+		  driver.findElement(By.id("ctl00_mainContent_ddl_originStation1_CTXT")).click();
+			driver.findElement(By.xpath("//li/a[contains(text(), 'Coimbatore (CJB)')]")).click();
+			driver.findElement(By.xpath("(//table[@id='citydropdown'])[2]//tr//ul[1]//li//a[contains(text(), 'Amritsar (ATQ)')]")).click();
+			driver.findElement(By.linkText("28")).click();
+			driver.findElement(By.id("divpaxinfo")).click();
+	new Select(driver.findElement(By.id("ctl00_mainContent_ddl_Adult"))).selectByVisibleText(adt);
+	new Select(driver.findElement(By.id("ctl00_mainContent_ddl_Child"))).selectByVisibleText(chd);
+	new Select(driver.findElement(By.id("ctl00_mainContent_ddl_Infant"))).selectByVisibleText(inf);
+			driver.findElement(By.id("ctl00_mainContent_btn_FindFlights")).click();
+			 driver.navigate().back();
+		//	driver.navigate().forward();
+	}
+  @Test
+  public void f() {
+	  search("3","0","0");
+	  search("2","2","0");
+	  search("4","1","1");
+  }
+  @BeforeTest
+  public void beforeTest() {
+	  System.setProperty("webdriver.gecko.driver", "C:\\Users\\Lenovo\\Desktop\\geckodriver.exe");
+		driver= new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
+  }
+
+  @AfterTest
+  public void afterTest() {
+	  driver.quit();
+  }
+
+}

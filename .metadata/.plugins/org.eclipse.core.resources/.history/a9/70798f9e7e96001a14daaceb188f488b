@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="com.ebanking.master.Multiply_EmployeeNg"/>
+      <class name="com.ebanking.master.ExePomEmployee"/>
+      <class name="com.ebanking.master.Exepom_Branch"/>
+      <class name="com.ebanking.master.EmployeeNg"/>
+      <class name="com.ebanking.master.sampleNG"/>
+      <class name="com.ebanking.master.Excelwithpom_Role"/>
+      <class name="com.ebanking.master.Multiply_RoleNg"/>
+      <class name="com.ebanking.master.ExePom_Roles"/>
+      <class name="com.ebanking.master.Library_TestNg"/>
+      <class name="com.ebanking.master.Multiply_BranchNG"/>
+      <class name="com.ebanking.master.RoleNg"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
